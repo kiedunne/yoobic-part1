@@ -1,44 +1,42 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
 
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav } from "ionic-angular";
+import { OAuthService } from "angular-oauth2-oidc";
+import { HelloIonicPage } from "../pages/hello-ionic/hello-ionic";
+import { ListPage } from "../pages/list/list";
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
-import { RegisterPage } from '../pages/register/register';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { RegisterPage } from "../pages/register/register";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage = RegisterPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage: any = HelloIonicPage;
+  pages: Array<{ title: string; component: any }>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
+    oauthService: OAuthService
   ) {
+    
     this.initializeApp();
 
-    // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-      { title: 'Sign in', component: RegisterPage }
+      { title: "Hello Ionic", component: HelloIonicPage },
+      { title: "Studio Ghibli Films", component: ListPage },
+      { title: "Register", component: RegisterPage }
     ];
   }
 
-  initializeApp() {
+initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
