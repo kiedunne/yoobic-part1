@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IonicPage, NavController} from 'ionic-angular';
 import {AuthService} from "../../services/auth.service";
-
+import { SignupPage } from '../signup/signup';
 
 @IonicPage()
 @Component({

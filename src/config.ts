@@ -1,6 +1,6 @@
 export const firebaseConfig = {
 	fire: {
-		apiKey: "AIzaSyBgDWqvXOT11WtPS15Wl_sNGyXAiOgCT_4",
+		apiKey: "",
         authDomain: "yoobic-part1.firebaseapp.com",
         databaseURL: "https://yoobic-part1.firebaseio.com",
         projectId: "yoobic-part1",

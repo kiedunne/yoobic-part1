@@ -9,6 +9,7 @@ import { HelloIonicPage } from "../pages/hello-ionic/hello-ionic";
 import { ItemDetailsPage } from "../pages/item-details/item-details";
 import { ListPage } from "../pages/list/list";
 import { LoginPage } from "../pages/login/login";
+import { SignupPage } from '../pages/signup/signup';
 import { LoginPageModule } from "../pages/login/login.module";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -18,7 +19,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from '../services/auth.service';
 
 @NgModule({
-  declarations: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage],
+  declarations: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage, LoginPage, SignupPage],
   imports: [
     BrowserModule,
     HttpModule,
