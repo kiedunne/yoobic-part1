@@ -8,34 +8,41 @@ import { HttpModule } from '@angular/http';
 import { HelloIonicPage } from "../pages/hello-ionic/hello-ionic";
 import { ItemDetailsPage } from "../pages/item-details/item-details";
 import { ListPage } from "../pages/list/list";
-import { RegisterPage } from "../pages/register/register";
-import { RegisterPageModule } from "../pages/register/register.module";
-
+import { LoginPage } from "../pages/login/login";
+import { LoginPageModule } from "../pages/login/login.module";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config';
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage],
   imports: [
     BrowserModule,
     HttpModule,
-    RegisterPageModule,
+    LoginPageModule,
     HttpClientModule,
     OAuthModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig.fire),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage,
-    RegisterPage
+    ListPage
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthService,
+    AngularFireAuth
   ]
 })
 export class AppModule {}

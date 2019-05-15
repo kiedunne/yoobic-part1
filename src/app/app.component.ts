@@ -1,11 +1,10 @@
 import { Component, ViewChild } from "@angular/core";
-
 import { Platform, MenuController, Nav } from "ionic-angular";
-import { OAuthService } from "angular-oauth2-oidc";
+
 import { HelloIonicPage } from "../pages/hello-ionic/hello-ionic";
 import { ListPage } from "../pages/list/list";
-
-import { RegisterPage } from "../pages/register/register";
+import { AuthService } from '../services/auth.service';
+import { LoginPage } from "../pages/login/login";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -23,7 +22,7 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    oauthService: OAuthService
+    private auth: AuthService 
   ) {
     
     this.initializeApp();
@@ -31,11 +30,12 @@ export class MyApp {
     this.pages = [
       { title: "Hello Ionic", component: HelloIonicPage },
       { title: "Studio Ghibli Films", component: ListPage },
-      { title: "Register", component: RegisterPage }
+      { title: "Login", component: LoginPage }
     ];
   }
 
 initializeApp() {
+  this.rootPage = LoginPage
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
