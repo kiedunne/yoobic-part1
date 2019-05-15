@@ -17,11 +17,15 @@ import { firebaseConfig } from '../config';
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { AuthService } from '../services/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage, LoginPage, SignupPage],
+  declarations: [MyApp, HelloIonicPage, ItemDetailsPage, ListPage, SignupPage],
   imports: [
     BrowserModule,
+    FormsModule,                               
+    ReactiveFormsModule,   
     HttpModule,
     LoginPageModule,
     HttpClientModule,
@@ -35,7 +39,8 @@ import { AuthService } from '../services/auth.service';
     LoginPage,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    SignupPage
     
   ],
   providers: [

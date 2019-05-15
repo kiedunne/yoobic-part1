@@ -5,6 +5,7 @@ import { HelloIonicPage } from "../pages/hello-ionic/hello-ionic";
 import { ListPage } from "../pages/list/list";
 import { AuthService } from '../services/auth.service';
 import { LoginPage } from "../pages/login/login";
+import { SignupPage } from "../pages/signup/signup";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -35,7 +36,7 @@ export class MyApp {
   }
 
 initializeApp() {
-  this.rootPage = LoginPage
+  this.rootPage = SignupPage
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
