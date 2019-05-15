@@ -35,12 +35,24 @@ export class MyApp {
     ];
   }
 
-initializeApp() {
-  this.rootPage = SignupPage
+  initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
     });
+  
+    this.auth.afAuth.authState
+      .subscribe(
+        user => {
+          if (user) {
+            this.rootPage = HelloIonicPage;
+          } else {
+            this.rootPage = LoginPage;
+          }
+        },
+        () => {
+          this.rootPage = LoginPage;
+        }
+      )
   }
 
   openPage(page) {
@@ -48,5 +60,15 @@ initializeApp() {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+  login() {
+    this.menu.close();
+    this.auth.signOut();
+    this.nav.setRoot(LoginPage);
+  }
+  logout() {
+    this.menu.close();
+    this.auth.signOut();
+    this.nav.setRoot(HelloIonicPage);
   }
 }
