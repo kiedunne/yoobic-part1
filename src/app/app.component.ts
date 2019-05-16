@@ -29,9 +29,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: "Hello Ionic", component: HelloIonicPage },
-      { title: "Studio Ghibli Films", component: ListPage },
-      { title: "Login", component: LoginPage }
+      { title: "Home", component: HelloIonicPage },
+      { title: "Studio Ghibli Films", component: ListPage }
     ];
   }
 

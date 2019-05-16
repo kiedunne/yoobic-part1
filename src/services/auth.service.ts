@@ -14,7 +14,6 @@ export class AuthService {
 	}
 
 	signInWithEmail(credentials) {
-		console.log('Sign in with email');
 		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
 			 credentials.password);
 	}
@@ -27,7 +26,7 @@ export class AuthService {
 	getEmail() {
 		return this.user && this.user.email;
 	  }
-	  signOut(): Promise<void> {
+	signOut(): Promise<void> {
 		return this.afAuth.auth.signOut();
 	  }
 }
